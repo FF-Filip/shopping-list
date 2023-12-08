@@ -1,0 +1,1 @@
+C:\Users\Filip\Documents\School\ListaZakupowa\ListaZakupowa.csproj;x64
