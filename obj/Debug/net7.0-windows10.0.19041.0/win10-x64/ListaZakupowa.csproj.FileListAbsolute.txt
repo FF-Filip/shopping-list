@@ -658,3 +658,4 @@ C:\Users\Filip Flak\Documents\4F\ListaZakupowa\obj\Debug\net7.0-windows10.0.1904
 C:\Users\Filip Flak\Documents\4F\ListaZakupowa\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\qualifiers.txt.intermediate
 C:\Users\Filip Flak\Documents\4F\ListaZakupowa\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Filip Flak\Documents\4F\ListaZakupowa\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\ProjectArchitectures.txt
+C:\Users\Filip\Documents\School\ListaZakupowa\obj\Debug\net7.0-windows10.0.19041.0\win10-x64\ListaZakupowa.sourcelink.json
