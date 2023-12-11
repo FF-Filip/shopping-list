@@ -3,26 +3,38 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ListaZakupowa.Views.MainPage"
              xmlns:controls="clr-namespace:ListaZakupowa.Controls"
-             Title="MainPage">
+             Title="MainPage"
+             Padding="20"
+             BackgroundColor="DarkGrey">
 
-    <CollectionView
-        ItemsSource="{Binding Categories}"
-        Header="This is a list of items to buy"
-        Footer="End of list. Yipeee!">
+    <VerticalStackLayout
+        BackgroundColor="DarkGrey">
 
-        <CollectionView.ItemTemplate>
+        <CollectionView
+            ItemsSource="{Binding Categories}">
 
-            <DataTemplate>
+            <CollectionView.ItemTemplate>
 
-                <controls:ItemCategory 
-                    CategoryName="{Binding Name}"
-                    Items="{Binding Items}" />
+                <DataTemplate>
 
-            </DataTemplate>
-            
-        </CollectionView.ItemTemplate>
-        
-    </CollectionView>
+                    <controls:ItemCategory 
+                        CategoryName="{Binding Name}"
+                        Items="{Binding Items}" />
+
+                </DataTemplate>
+
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+
+        <Button 
+            Text="Add new category"
+            TextColor="Black"
+            BackgroundColor="LightGreen"
+            Margin="20"
+            FontSize="24"/>
+
+    </VerticalStackLayout>
 
 </ContentPage>
     

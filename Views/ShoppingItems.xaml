@@ -15,7 +15,11 @@
             <DataTemplate>
 
                 <controls:ShoppingItem
-                    ItemName="{Binding Name}"/>
+                    ItemName="{Binding Name}"
+                    Quantity="{Binding Quantity}"
+                    QuantityUnit="{Binding QuantityUnit}"
+                    DefaultShop="{Binding DefaultShop}"
+                    />
 
             </DataTemplate>
 

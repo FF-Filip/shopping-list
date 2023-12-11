@@ -18,6 +18,6 @@ public partial class MainPage : ContentPage
 
     private async void NewCategoryButton_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync(nameof(NewCategory));
+        await Shell.Current.GoToAsync(nameof(NewCategoryPage));
     }
 }

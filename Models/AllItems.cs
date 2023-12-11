@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
-using Windows.ApplicationModel.Activation;
-using Windows.Storage;
 
 namespace ListaZakupowa.Models
 {
@@ -22,8 +15,8 @@ namespace ListaZakupowa.Models
 
         public void SaveItems()
         {
-            Items.Add(new Item("Test item", 2, "szt.", "Lidl"));
-            Items.Add(new Item("Melko", 1, "l", "Dino"));
+            Items.Add(new Item("Banany", 2, "szt.", "Lidl"));
+            Items.Add(new Item("Mleko", 1, "l", "Dino"));
 
             XDocument xDocument = new XDocument();
 

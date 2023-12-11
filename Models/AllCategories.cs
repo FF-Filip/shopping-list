@@ -18,7 +18,6 @@ namespace ListaZakupowa.Models
             Categories.Clear();
 
             Categories.Add(new Category("Żywność"));
-            Categories.Add(new Category("Elektronika"));
         }
     }
 }

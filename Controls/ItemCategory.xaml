@@ -5,22 +5,28 @@
              xmlns:controls="clr-namespace:ListaZakupowa.Controls"
              x:Name="this">
 
-    <Frame BindingContext="{x:Reference this}">
+    <Frame BindingContext="{x:Reference this}"
+           BackgroundColor="Turquoise">
 
         <VerticalStackLayout>
 
-            <Label Text="{Binding CategoryName}" />
+            <Label 
+                Text="{Binding CategoryName}"
+                FontSize="32"
+                TextColor="Black"/>
 
             <CollectionView
-                x:Name="ItemsCollection"
                 SelectionMode="None"
-                ItemsSource="{Binding Items}">
+                ItemsSource="{Binding Path=Items}">
 
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
 
                         <controls:ShoppingItem 
-                            ItemName="{Binding ItemName}"
+                            ItemName="{Binding Name}"
+                            Quantity="{Binding Quantity}"
+                            QuantityUnit="{Binding QuantityUnit}"
+                            DefaultShop="{Binding DefaultShop}"
                             />
 
                     </DataTemplate>
