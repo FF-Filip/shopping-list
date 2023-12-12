@@ -4,25 +4,42 @@
              x:Class="ListaZakupowa.Views.NewItemPage"
              Title="NewItemPage">
     
-    <VerticalStackLayout>
+    <VerticalStackLayout Padding="40">
 
-        <Label Text="Fill up these Quotas" />
+        <Label 
+            Text="Fill up these Quotas"
+            FontSize="24"
+            Margin="10"/>
+
+        <Editor 
+            x:Name="NameEditor"
+            Placeholder="Item name"/>
+
+        <HorizontalStackLayout
+            Margin="10"
+            HorizontalOptions="Center">
+
+            <Picker
+                x:Name="CategoryPicker"
+                Title="Select the category"/>
+            
+        </HorizontalStackLayout>
         
         <Editor 
-        Placeholder="A name for Your item..."/>
-        
+            x:Name="QuantityEditor"
+            Placeholder="Quantity"/>
+
         <Editor 
-        Placeholder="A name for Your item..."/>
-        
+            x:Name="UnitEditor"
+            Placeholder="Quantity unit"/>
+
         <Editor 
-        Placeholder="A name for Your item..."/>
-        
-        <Editor 
-        Placeholder="A name for Your item..."/>
+            x:Name="ShopEditor"
+            Placeholder="Store, where the item is"/>
         
         <Button 
-        Text="Create"
-        Clicked="CreateButton_Clicked"/>
+            Text="Add new item"
+            Clicked="CreateButton_Clicked"/>
 
     </VerticalStackLayout>
     

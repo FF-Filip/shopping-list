@@ -1,4 +1,6 @@
+using ListaZakupowa.Models;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace ListaZakupowa.Controls;
 
@@ -22,4 +24,15 @@ public partial class ItemCategory : ContentView
 	{
 		InitializeComponent();
 	}
+
+    private void ItemSelection_Changed(object sender, SelectionChangedEventArgs e)
+    {
+        Item selectedItem = e.CurrentSelection.FirstOrDefault() as Item;
+        //selectedItem.isItemBought = !selectedItem.isItemBought;
+
+        CollectionView senderCategory = sender as CollectionView;
+        Debug.WriteLine(senderCategory.ItemsSource);
+
+        //((AllCategories)BindingContext).Categories.IndexOf(senderCategory)
+    }
 }

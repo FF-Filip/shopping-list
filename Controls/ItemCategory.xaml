@@ -6,7 +6,8 @@
              x:Name="this">
 
     <Frame BindingContext="{x:Reference this}"
-           BackgroundColor="Turquoise">
+           BackgroundColor="Turquoise"
+           Margin="10">
 
         <VerticalStackLayout>
 
@@ -16,7 +17,8 @@
                 TextColor="Black"/>
 
             <CollectionView
-                SelectionMode="None"
+                SelectionMode="Single"
+                SelectionChanged="ItemSelection_Changed"
                 ItemsSource="{Binding Path=Items}">
 
                 <CollectionView.ItemTemplate>

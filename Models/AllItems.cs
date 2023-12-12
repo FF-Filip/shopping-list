@@ -8,11 +8,9 @@ namespace ListaZakupowa.Models
     {
         public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
 
-        public AllItems()
-        {
-            SaveItems();
-        }
+        public AllItems() { }
 
+        /*
         public void SaveItems()
         {
             Items.Add(new Item("Banany", 2, "szt.", "Lidl"));
@@ -43,7 +41,8 @@ namespace ListaZakupowa.Models
             Items.Clear();
             Debug.WriteLine("Dane aplikacji" + FileSystem.AppDataDirectory);
         }
-
+        */
+        /*
         public void LoadItems()
         {
             Items.Clear();
@@ -65,5 +64,6 @@ namespace ListaZakupowa.Models
                 Items.Add(new Item(elName, elQuantity, elQuantityUnit, elDefaultShop, elIsBought));
             }
         }
+        */
     }
 }

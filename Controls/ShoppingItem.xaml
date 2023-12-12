@@ -26,7 +26,7 @@
                     HorizontalOptions="Center"
                     >
 
-                    <Label
+                    <Editor
                         Text="{Binding Quantity, FallbackValue=-1}" />
 
                     <Label

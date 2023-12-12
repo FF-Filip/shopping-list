@@ -8,7 +8,7 @@
 
         <Label Text="Fill up these Quotas" />
         <Editor 
-            Placeholder="A name of your category..."/>
+            Placeholder="Provide a name for a new category..."/> 
         <Button 
             Text="Create"
             Clicked="CreateButton_Clicked"/>

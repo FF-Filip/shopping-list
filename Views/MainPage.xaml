@@ -3,38 +3,44 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ListaZakupowa.Views.MainPage"
              xmlns:controls="clr-namespace:ListaZakupowa.Controls"
-             Title="MainPage"
-             Padding="20"
-             BackgroundColor="DarkGrey">
+             Title="MainPage">
 
-    <VerticalStackLayout
-        BackgroundColor="DarkGrey">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add new item" Clicked="NewItem_Clicked" IconImageSource="{FontImage Glyph='+'}" />
+    </ContentPage.ToolbarItems>
 
-        <CollectionView
-            ItemsSource="{Binding Categories}">
+    <ScrollView>
 
-            <CollectionView.ItemTemplate>
+        <VerticalStackLayout
+            Margin="20">
 
-                <DataTemplate>
+            <CollectionView
+                ItemsSource="{Binding Categories}">
 
-                    <controls:ItemCategory 
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <controls:ItemCategory 
                         CategoryName="{Binding Name}"
                         Items="{Binding Items}" />
 
-                </DataTemplate>
+                    </DataTemplate>
 
-            </CollectionView.ItemTemplate>
+                </CollectionView.ItemTemplate>
 
-        </CollectionView>
+            </CollectionView>
 
-        <Button 
-            Text="Add new category"
-            TextColor="Black"
-            BackgroundColor="LightGreen"
-            Margin="20"
-            FontSize="24"/>
+            <Button 
+                Text="Add new category"
+                TextColor="Black"
+                BackgroundColor="LightGreen"
+                Margin="20"
+                FontSize="24"/>
 
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+
+    </ScrollView>
 
 </ContentPage>
     

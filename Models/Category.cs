@@ -14,10 +14,10 @@ namespace ListaZakupowa.Models
         public string Name { get; set; }
         public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
 
-        public Category(string Name)
+        public Category(string Name, ObservableCollection<Item> Items)
         {
             this.Name = Name;
-            LoadItems();
+            this.Items = Items;
         }
 
         public void SaveItems()
