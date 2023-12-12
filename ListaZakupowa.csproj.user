@@ -30,10 +30,10 @@
     <MauiXaml Update="Views\MainPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\NewCategory.xaml">
+    <MauiXaml Update="Views\NewCategoryPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
-    <MauiXaml Update="Views\SingleShoppingItem.xaml">
+    <MauiXaml Update="Views\NewItemPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
   </ItemGroup>

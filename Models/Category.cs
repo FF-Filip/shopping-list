@@ -1,16 +1,25 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace ListaZakupowa.Models
 {
-    class AllItems
+    public class Category
     {
+        public string Name { get; set; }
         public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
 
-        public AllItems() { }
+        public Category(string Name, ObservableCollection<Item> Items)
+        {
+            this.Name = Name;
+            this.Items = Items;
+        }
 
-        /*
         public void SaveItems()
         {
             Items.Add(new Item("Banany", 2, "szt.", "Lidl"));
@@ -41,19 +50,18 @@ namespace ListaZakupowa.Models
             Items.Clear();
             Debug.WriteLine("Dane aplikacji" + FileSystem.AppDataDirectory);
         }
-        */
-        /*
+
         public void LoadItems()
         {
             Items.Clear();
             string _filename = "shoppingList.items.xml";
 
-            //if (!File.Exists(Path.Combine(FileSystem.AppDataDirectory, _filename)))
-            //    return;
+            if (!File.Exists(Path.Combine(FileSystem.AppDataDirectory, _filename)))
+                return;
 
             XDocument xml = XDocument.Load(Path.Combine(FileSystem.AppDataDirectory, _filename));
             IEnumerable<XElement> tempList = xml.Descendants("Item");
-            foreach(var el in tempList)
+            foreach (var el in tempList)
             {
                 string elName = el.Descendants().ElementAt(0).Value;
                 int elQuantity = Int32.Parse(el.Descendants().ElementAt(1).Value);
@@ -64,6 +72,5 @@ namespace ListaZakupowa.Models
                 Items.Add(new Item(elName, elQuantity, elQuantityUnit, elDefaultShop, elIsBought));
             }
         }
-        */
     }
 }

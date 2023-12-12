@@ -6,9 +6,8 @@
         {
             InitializeComponent();
 
-            Routing.RegisterRoute(nameof(Views.NewCategory), typeof(Views.NewCategory));
+            Routing.RegisterRoute(nameof(Views.NewCategoryPage), typeof(Views.NewCategoryPage));
+            Routing.RegisterRoute(nameof(Views.NewItemPage), typeof(Views.NewItemPage));
         }
-
-
     }
 }

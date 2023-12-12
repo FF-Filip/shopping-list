@@ -4,7 +4,8 @@
              x:Class="ListaZakupowa.Controls.ShoppingItem"
              x:Name="this">
 
-    <Frame BindingContext="{x:Reference this}">
+    <Frame BindingContext="{x:Reference this}"
+           Margin="10">
 
         <HorizontalStackLayout
             MinimumWidthRequest="500"
@@ -24,8 +25,8 @@
                 <HorizontalStackLayout
                     HorizontalOptions="Center"
                     >
-                
-                    <Label
+
+                    <Editor
                         Text="{Binding Quantity, FallbackValue=-1}" />
 
                     <Label
@@ -55,8 +56,6 @@
             </VerticalStackLayout>
 
         </HorizontalStackLayout>
-
-        
 
     </Frame>
     

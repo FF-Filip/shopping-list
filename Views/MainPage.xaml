@@ -2,8 +2,45 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ListaZakupowa.Views.MainPage"
+             xmlns:controls="clr-namespace:ListaZakupowa.Controls"
              Title="MainPage">
-    
-    
-    
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add new item" Clicked="NewItem_Clicked" IconImageSource="{FontImage Glyph='+'}" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+
+        <VerticalStackLayout
+            Margin="20">
+
+            <CollectionView
+                ItemsSource="{Binding Categories}">
+
+                <CollectionView.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <controls:ItemCategory 
+                        CategoryName="{Binding Name}"
+                        Items="{Binding Items}" />
+
+                    </DataTemplate>
+
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+            <Button 
+                Text="Add new category"
+                TextColor="Black"
+                BackgroundColor="LightGreen"
+                Margin="20"
+                FontSize="24"/>
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
 </ContentPage>
+    
