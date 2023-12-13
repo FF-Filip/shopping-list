@@ -32,13 +32,6 @@
 
             </CollectionView>
 
-            <Button 
-                Text="Add new category"
-                TextColor="Black"
-                BackgroundColor="LightGreen"
-                Margin="20"
-                FontSize="24"/>
-
         </VerticalStackLayout>
 
     </ScrollView>
