@@ -1,14 +1,20 @@
 ﻿using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Xml.Linq;
+using System.ComponentModel;
 
 namespace ListaZakupowa.Models
 {
-    class AllItems
+    class AllItems : INotifyPropertyChanged
     {
         public ObservableCollection<Item> Items { get; set; } = new ObservableCollection<Item>();
 
         public AllItems() { }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         /*
         public void SaveItems()

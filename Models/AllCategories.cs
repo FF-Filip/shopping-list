@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Xml.Linq;
 
@@ -14,12 +14,28 @@ namespace ListaZakupowa.Models
             //SaveCategories();
         }
 
-        public void SaveCategories()
+        public void AddCategory(Category category)
+        {
+            Categories.Add(category);
+            SaveCategories(Categories.ToList());
+        }
+
+        public void AddItem(Item newItem)
+        {
+            foreach (var category in Categories)
+            {
+                if(category.Name == newItem.ParentCategory)
+                    category.Items.Add(newItem);
+            }
+            SaveCategories(Categories.ToList());
+        }
+
+        public void SaveCategories(List<Category> categories)
         {
             /*
 
-            Item test1 = new Item("Banan", 3, "kg", "Biedronka");
-            Item test2 = new Item("Mleko", 2, "l", "Lidl");
+            Item test1 = new Item("Banan", "Żywność", 3, "kg", "Biedronka");
+            Item test2 = new Item("Mleko", "Elektronika", 2, "l", "Lidl");
 
             ObservableCollection<Item> itemsTest = new ObservableCollection<Item>();
             itemsTest.Add(test1);
@@ -29,17 +45,24 @@ namespace ListaZakupowa.Models
 
             Categories.Add(cat1);
             Categories.Add(cat2);
+            
             */
-
 
             XDocument xDocument = new XDocument();
             xDocument.Add(new XElement("Categories"));
 
-            foreach (Category category in Categories)
+            foreach (Category category in categories)
             {
+                if (category.Items == null)
+                {
+                    xDocument.Element("Categories").Add(new XElement(category.Name));
+                    continue;
+                }
+
                 xDocument.Element("Categories").Add(new XElement(category.Name, 
                     category.Items.Select(item => new XElement("Item", 
                     new XElement("Name", item.Name),
+                    new XElement("ParentCategory", item.ParentCategory),
                     new XElement("Quantity", item.Quantity),
                     new XElement("QuantityUnit", item.QuantityUnit),
                     new XElement("DefaultShop", item.DefaultShop),
@@ -75,18 +98,30 @@ namespace ListaZakupowa.Models
 
                 foreach (XElement item in el.Elements())
                 {
+                    if(item == null)
+                        continue;
+
                     string itemName = item.Element("Name").Value;
+                    string itemCategory = item.Element("ParentCategory").Value;
                     int itemQuantity = Int32.Parse(item.Element("Quantity").Value);
                     string itemQuantityUnit = item.Element("QuantityUnit").Value;
                     string itemDefaultShop = item.Element("DefaultShop").Value;
                     bool itemIsBought = Boolean.Parse(item.Element("isBought").Value);
 
-                    tempItems.Add(new Item(itemName, itemQuantity, itemQuantityUnit, itemDefaultShop, itemIsBought));
+                    tempItems.Add(new Item(itemName, itemCategory, itemQuantity, itemQuantityUnit,
+                        itemDefaultShop, itemIsBought));
                 }
 
                 Categories.Add(new Category(catName, tempItems));
 
             }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
