@@ -7,6 +7,7 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add new item" Clicked="NewItem_Clicked" IconImageSource="{FontImage Glyph='+'}" />
+        <ToolbarItem Text="Add new category" Clicked="NewCategory_Clicked" IconImageSource="{FontImage Glyph='+'}" />
     </ContentPage.ToolbarItems>
 
     <ScrollView>
@@ -30,13 +31,6 @@
                 </CollectionView.ItemTemplate>
 
             </CollectionView>
-
-            <Button 
-                Text="Add new category"
-                TextColor="Black"
-                BackgroundColor="LightGreen"
-                Margin="20"
-                FontSize="24"/>
 
         </VerticalStackLayout>
 

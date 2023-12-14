@@ -29,5 +29,8 @@ public partial class MainPage : ContentPage
         Shell.Current.GoToAsync(nameof(NewItemPage));
     }
 
-    
+    private void NewCategory_Clicked(object sender, EventArgs e)
+    {
+        Shell.Current.GoToAsync(nameof(NewCategoryPage));
+    }
 }

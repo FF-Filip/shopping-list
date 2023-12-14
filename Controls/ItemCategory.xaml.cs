@@ -1,4 +1,3 @@
-using ListaZakupowa.Models;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 
@@ -23,7 +22,7 @@ public partial class ItemCategory : ContentView
 	public ItemCategory()
 	{
 		InitializeComponent();
-	}
+    }
 
     private void ItemSelection_Changed(object sender, SelectionChangedEventArgs e)
     {

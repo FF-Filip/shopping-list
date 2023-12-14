@@ -4,11 +4,15 @@
              x:Class="ListaZakupowa.Views.NewCategoryPage"
              Title="NewCategoryPage">
 
-    <VerticalStackLayout>
+    <VerticalStackLayout
+        Padding="40">
 
         <Label Text="Fill up these Quotas" />
+        
         <Editor 
+            x:Name="CategoryEditor"
             Placeholder="Provide a name for a new category..."/> 
+        
         <Button 
             Text="Create"
             Clicked="CreateButton_Clicked"/>
