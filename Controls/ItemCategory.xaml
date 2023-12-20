@@ -18,8 +18,7 @@
                 TextColor="Black"/>
 
             <CollectionView
-                SelectionMode="Single"
-                SelectionChanged="ItemSelection_Changed"
+                SelectionMode="None"
                 ItemsSource="{Binding Path=Items}">
 
                 <CollectionView.ItemTemplate>
@@ -30,11 +29,11 @@
                             Quantity="{Binding Quantity}"
                             QuantityUnit="{Binding QuantityUnit}"
                             DefaultShop="{Binding DefaultShop}"
+                            IsItemBought="{Binding IsItemBought}"
                             />
 
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-                
                 
             </CollectionView>
 

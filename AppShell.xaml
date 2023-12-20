@@ -9,4 +9,8 @@
         Title="All categories"
         ContentTemplate="{DataTemplate views:MainPage}"/>
 
+    <ShellContent 
+        Title="Shop view"
+        ContentTemplate="{DataTemplate views:ShopView}"/>
+    
 </Shell>
