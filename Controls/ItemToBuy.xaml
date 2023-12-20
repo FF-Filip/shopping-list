@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ListaZakupowa.Controls.ShoppingItem"
+             x:Class="ListaZakupowa.Controls.ItemToBuy"
              x:Name="this">
 
     <Frame 
+        IsVisible="{Binding IsItemNotBought}"
         BindingContext="{x:Reference this}"
         Margin="5">
 
         <Grid
-            ColumnDefinitions="2*,*,*,0.5*,*"
+            ColumnDefinitions="*,*,*,*"
             Padding="5">
 
             <VerticalStackLayout
-                    Grid.Column="0"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Start">
+                Grid.Column="0"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
 
                 <Label 
                     x:Name="NameLabel"
                     Text="{Binding ItemName, FallbackValue=DefaultName}"
                     FontSize="24"
-                    Margin="10"
-                    />
+                    Margin="10" />
 
             </VerticalStackLayout>
 
             <VerticalStackLayout
-                    Grid.Column="1">
+                Grid.Column="1"
+                VerticalOptions="Center">
 
                 <HorizontalStackLayout
                     HorizontalOptions="Center">
@@ -46,18 +47,6 @@
 
                 </HorizontalStackLayout>
 
-                <VerticalStackLayout
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center">
-
-                    <Stepper
-                        Value="{Binding Quantity}"
-                        Minimum="1"
-                        Scale="1"
-                        ValueChanged="QuantityValue_Changed"/>
-
-                </VerticalStackLayout>
-
             </VerticalStackLayout>
 
             <VerticalStackLayout
@@ -67,6 +56,7 @@
 
                 <Label
                     x:Name="ShopLabel"
+                    FontSize="16"
                     Text="{Binding DefaultShop, FallbackValue=DefaultShop}"/>
 
             </VerticalStackLayout>
@@ -74,25 +64,18 @@
             <VerticalStackLayout
                 Grid.Column="3"
                 Padding="5"
-                VerticalOptions="Center">
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
 
                 <CheckBox
                     IsChecked="{Binding IsItemBought, FallbackValue=false}"
                     CheckedChanged="IsBought_Changed"
-                    Scale="1.6"
-                    HorizontalOptions="Start"/> 
+                    Scale="1.6"/>
 
             </VerticalStackLayout>
-
-            <Button
-                Grid.Column="4"
-                Text="Delete"
-                Clicked="Delete_Clicked"
-                TextColor="Black"
-                BackgroundColor="Red"/>
 
         </Grid>
 
     </Frame>
-    
+
 </ContentView>

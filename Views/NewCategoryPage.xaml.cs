@@ -7,12 +7,11 @@ public partial class NewCategoryPage : ContentPage
 	public NewCategoryPage()
 	{
 		InitializeComponent();
-        BindingContext = new AllCategories();
     }
 
     protected override void OnAppearing()
     {
-        ((AllCategories)BindingContext).LoadCategories();
+        AllCategories.Categories = FileHelper.LoadCategories();
     }
 
     private async void CreateButton_Clicked(object sender, EventArgs e)
@@ -26,7 +25,8 @@ public partial class NewCategoryPage : ContentPage
         string newCategoryName = CategoryEditor.Text;
 
         Category category = new Category(newCategoryName);
-        ((AllCategories)BindingContext).AddCategory(category);
+        AllCategories.Categories.Add(category);
+        FileHelper.SaveCategories(AllCategories.Categories.ToList());
 
         await Shell.Current.GoToAsync("..");
     }

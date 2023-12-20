@@ -6,17 +6,25 @@ namespace ListaZakupowa.Views;
 
 public partial class MainPage : ContentPage
 {
-	public MainPage()
+    public MainPage()
 	{
 		InitializeComponent();
-
-		BindingContext = new Models.AllCategories();
-	}
+        CategoriesCollection.CancelAnimations();
+        BindingContext = AllCategories.Categories;
+    }
 
     protected override void OnAppearing()
     {
-        ((Models.AllCategories)BindingContext).LoadCategories();
-        
+        try
+        {
+            AllCategories.Categories = FileHelper.LoadCategories();
+            List<Category> catList = AllCategories.Categories.ToList();
+            CategoriesCollection.ItemsSource = catList;
+        }
+        catch (AccessViolationException ex)
+        {
+            Debug.WriteLine($"AccessViolationException: {ex.Message}");
+        }
     }
 
     private async void NewCategoryButton_Clicked(object sender, EventArgs e)
